@@ -1,0 +1,482 @@
+/* Advanced Mobile Navigation & UI Improvements */
+/* تحسينات متقدمة للقائمة والواجهة على الجوال */
+
+/* ===========================================
+   ADVANCED MOBILE HAMBURGER MENU
+   =========================================== */
+
+/* Mobile-only hamburger menu */
+@media (max-width: 768px) {
+    
+    /* Compact hamburger button */
+    .nav-toggle {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 32px !important; /* Smaller size */
+        height: 32px !important;
+        padding: 6px !important;
+        background: rgba(44, 90, 160, 0.08) !important;
+        border: 1px solid rgba(44, 90, 160, 0.2) !important;
+        border-radius: 6px !important;
+        cursor: pointer !important;
+        position: relative !important;
+        z-index: 1001 !important;
+        margin-left: auto !important;
+        transition: all 0.2s ease !important;
+    }
+    
+    .nav-toggle:hover,
+    .nav-toggle:active {
+        background: rgba(44, 90, 160, 0.15) !important;
+        border-color: rgba(44, 90, 160, 0.4) !important;
+        transform: scale(1.05) !important;
+    }
+    
+    /* Compact hamburger lines */
+    .nav-toggle span {
+        display: block !important;
+        width: 18px !important; /* Smaller lines */
+        height: 2px !important;
+        background: #2c5aa0 !important;
+        margin: 2px 0 !important;
+        border-radius: 1px !important;
+        transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    }
+    
+    /* Smooth animation for hamburger to X */
+    .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(4px, 4px) !important;
+        background: #e74c3c !important;
+    }
+    
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0 !important;
+        transform: translateX(-20px) !important;
+    }
+    
+    .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(4px, -4px) !important;
+        background: #e74c3c !important;
+    }
+    
+    /* Hide desktop navigation */
+    .nav-menu {
+        display: none !important;
+    }
+    
+    /* Mobile menu dropdown */
+    .nav-menu.active {
+        display: flex !important;
+        position: absolute !important;
+        top: calc(100% + 8px) !important;
+        left: 10px !important;
+        right: 10px !important;
+        background: white !important;
+        flex-direction: column !important;
+        padding: 15px !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
+        border-radius: 12px !important;
+        border: 1px solid rgba(0, 0, 0, 0.08) !important;
+        z-index: 1000 !important;
+        max-height: calc(100vh - 150px) !important;
+        overflow-y: auto !important;
+        animation: slideDown 0.3s ease-out !important;
+    }
+    
+    /* Slide down animation */
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px) scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+    
+    /* Mobile menu items */
+    .nav-menu.active li {
+        width: 100% !important;
+        margin: 0 !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+        padding: 0 !important;
+    }
+    
+    .nav-menu.active li:last-child {
+        border-bottom: none !important;
+    }
+    
+    /* Mobile menu links */
+    .nav-menu.active .nav-link {
+        padding: 12px 16px !important;
+        font-size: 15px !important;
+        color: #333 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        border-radius: 8px !important;
+        margin: 4px 0 !important;
+        transition: all 0.2s ease !important;
+        text-decoration: none !important;
+    }
+    
+    .nav-menu.active .nav-link:hover,
+    .nav-menu.active .nav-link:active {
+        background: rgba(44, 90, 160, 0.08) !important;
+        color: #2c5aa0 !important;
+        transform: translateX(4px) !important;
+    }
+    
+    /* Dropdown in mobile menu */
+    .nav-menu.active .dropdown-menu {
+        position: static !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        box-shadow: none !important;
+        background: rgba(44, 90, 160, 0.04) !important;
+        margin: 8px 0 0 0 !important;
+        border-radius: 8px !important;
+        border: 1px solid rgba(44, 90, 160, 0.1) !important;
+        max-height: 0 !important;
+        overflow: hidden !important;
+        transition: max-height 0.3s ease !important;
+    }
+    
+    .nav-menu.active .dropdown.active .dropdown-menu {
+        max-height: 200px !important;
+        padding: 10px !important;
+    }
+    
+    .nav-menu.active .dropdown-menu li a {
+        padding: 8px 12px !important;
+        font-size: 14px !important;
+        color: #555 !important;
+    }
+    
+    /* Fix header layout */
+    .header-main {
+        padding: 8px 0 !important;
+    }
+    
+    .main-nav {
+        position: relative !important;
+    }
+    
+    /* Close menu when clicking outside */
+    .mobile-overlay {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background: transparent !important;
+        z-index: 999 !important;
+        display: none !important;
+    }
+    
+    .mobile-overlay.active {
+        display: block !important;
+    }
+}
+
+/* ===========================================
+   FLOATING SOCIAL ICONS IMPROVEMENTS
+   =========================================== */
+
+/* Fix floating social icons to appear ABOVE the toggle button */
+.floating-social {
+    position: fixed !important;
+    bottom: 20px !important;
+    left: 20px !important;
+    z-index: 1002 !important;
+    display: flex !important;
+    flex-direction: column-reverse !important; /* Icons appear above button */
+    align-items: flex-start !important;
+    gap: 8px !important;
+}
+
+.social-toggle {
+    width: 45px !important;
+    height: 45px !important;
+    background: linear-gradient(135deg, #667eea, #764ba2) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4) !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    position: relative !important;
+    order: 2 !important; /* Toggle button at bottom */
+}
+
+.social-toggle:hover {
+    transform: translateY(-2px) scale(1.1) !important;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5) !important;
+}
+
+.social-toggle i {
+    color: white !important;
+    font-size: 16px !important;
+    transition: transform 0.3s ease !important;
+}
+
+.social-toggle.active i {
+    transform: rotate(45deg) !important;
+}
+
+/* Social icons container - appears ABOVE toggle */
+.social-icons {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(20px) !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    order: 1 !important; /* Icons appear above */
+}
+
+.social-icons.active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}
+
+/* Individual social icons */
+.social-icon {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    transform: scale(0) !important;
+    animation-fill-mode: forwards !important;
+}
+
+.social-icons.active .social-icon {
+    animation: socialIconIn 0.4s ease-out forwards !important;
+}
+
+.social-icons.active .social-icon:nth-child(1) { animation-delay: 0.1s !important; }
+.social-icons.active .social-icon:nth-child(2) { animation-delay: 0.15s !important; }
+.social-icons.active .social-icon:nth-child(3) { animation-delay: 0.2s !important; }
+.social-icons.active .social-icon:nth-child(4) { animation-delay: 0.25s !important; }
+.social-icons.active .social-icon:nth-child(5) { animation-delay: 0.3s !important; }
+
+@keyframes socialIconIn {
+    0% {
+        transform: scale(0) translateY(20px);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2) translateY(0);
+    }
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Social icon colors */
+.social-icon.facebook {
+    background: linear-gradient(135deg, #3b5998, #8b9dc3) !important;
+    box-shadow: 0 4px 15px rgba(59, 89, 152, 0.3) !important;
+}
+
+.social-icon.instagram {
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045) !important;
+    box-shadow: 0 4px 15px rgba(131, 58, 180, 0.3) !important;
+}
+
+.social-icon.twitter {
+    background: linear-gradient(135deg, #1da1f2, #0d95e8) !important;
+    box-shadow: 0 4px 15px rgba(29, 161, 242, 0.3) !important;
+}
+
+.social-icon.youtube {
+    background: linear-gradient(135deg, #ff0000, #cc0000) !important;
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3) !important;
+}
+
+.social-icon.google {
+    background: linear-gradient(135deg, #db4437, #0f9d58, #f4b400) !important;
+    box-shadow: 0 4px 15px rgba(219, 68, 55, 0.3) !important;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px) scale(1.1) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+.social-icon i {
+    color: white !important;
+    font-size: 14px !important;
+}
+
+/* ===========================================
+   MOBILE OPTIMIZATIONS
+   =========================================== */
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .nav-toggle {
+        width: 28px !important;
+        height: 28px !important;
+        padding: 5px !important;
+    }
+    
+    .nav-toggle span {
+        width: 16px !important;
+        height: 1.5px !important;
+        margin: 1.5px 0 !important;
+    }
+    
+    .nav-menu.active {
+        left: 5px !important;
+        right: 5px !important;
+        padding: 12px !important;
+    }
+    
+    .nav-menu.active .nav-link {
+        padding: 10px 12px !important;
+        font-size: 14px !important;
+    }
+    
+    .floating-social {
+        bottom: 15px !important;
+        left: 15px !important;
+    }
+    
+    .social-toggle {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .social-icon {
+        width: 35px !important;
+        height: 35px !important;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 320px) {
+    .nav-menu.active {
+        max-height: calc(100vh - 120px) !important;
+    }
+    
+    .floating-social {
+        bottom: 10px !important;
+        left: 10px !important;
+    }
+}
+
+/* Landscape phones */
+@media (max-height: 500px) and (orientation: landscape) {
+    .nav-menu.active {
+        max-height: calc(100vh - 100px) !important;
+        padding: 8px !important;
+    }
+    
+    .nav-menu.active .nav-link {
+        padding: 8px 10px !important;
+        font-size: 13px !important;
+    }
+    
+    .floating-social {
+        bottom: 10px !important;
+        left: 10px !important;
+    }
+    
+    .social-toggle {
+        width: 35px !important;
+        height: 35px !important;
+    }
+    
+    .social-icon {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    
+    .social-icon i {
+        font-size: 12px !important;
+    }
+}
+
+/* High DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .nav-toggle {
+        border-width: 0.5px !important;
+    }
+    
+    .nav-toggle span {
+        height: 1.5px !important;
+    }
+}
+
+/* ===========================================
+   ACCESSIBILITY IMPROVEMENTS
+   =========================================== */
+
+/* Focus states for keyboard navigation */
+.nav-toggle:focus {
+    outline: 2px solid #667eea !important;
+    outline-offset: 2px !important;
+}
+
+.nav-menu.active .nav-link:focus {
+    background: rgba(44, 90, 160, 0.15) !important;
+    outline: 2px solid #667eea !important;
+    outline-offset: -2px !important;
+}
+
+.social-toggle:focus,
+.social-icon:focus {
+    outline: 2px solid #667eea !important;
+    outline-offset: 2px !important;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .nav-toggle,
+    .nav-toggle span,
+    .nav-menu.active,
+    .social-toggle,
+    .social-icon {
+        transition: none !important;
+        animation: none !important;
+    }
+    
+    .nav-menu.active {
+        animation: none !important;
+    }
+    
+    .social-icons.active .social-icon {
+        animation: none !important;
+        transform: scale(1) !important;
+        opacity: 1 !important;
+    }
+}
+
+/* ===========================================
+   DESKTOP FALLBACKS
+   =========================================== */
+
+/* Hide mobile elements on desktop */
+@media (min-width: 769px) {
+    .nav-toggle {
+        display: none !important;
+    }
+    
+    .mobile-overlay {
+        display: none !important;
+    }
+}
