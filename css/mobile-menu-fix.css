@@ -1,0 +1,159 @@
+/* Mobile Menu Fix - CRITICAL FOR MOBILE DISPLAY */
+
+/* Force show hamburger menu on mobile */
+@media screen and (max-width: 768px) {
+    .nav-toggle {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 45px !important;
+        height: 45px !important;
+        padding: 10px !important;
+        background: rgba(44, 90, 160, 0.1) !important;
+        border: 2px solid rgba(44, 90, 160, 0.3) !important;
+        border-radius: 8px !important;
+        cursor: pointer !important;
+        position: relative !important;
+        z-index: 1001 !important;
+        margin-left: auto !important;
+    }
+    
+    .nav-toggle:hover,
+    .nav-toggle:focus {
+        background: rgba(44, 90, 160, 0.2) !important;
+        border-color: rgba(44, 90, 160, 0.5) !important;
+    }
+    
+    .nav-toggle span {
+        display: block !important;
+        width: 25px !important;
+        height: 3px !important;
+        background: #2c5aa0 !important;
+        margin: 3px 0 !important;
+        border-radius: 2px !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    /* Hide desktop navigation on mobile */
+    .nav-menu {
+        display: none !important;
+    }
+    
+    /* Show mobile menu when active */
+    .nav-menu.active {
+        display: flex !important;
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: white !important;
+        flex-direction: column !important;
+        padding: 20px !important;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1) !important;
+        border-radius: 0 0 12px 12px !important;
+        z-index: 1000 !important;
+    }
+    
+    /* Mobile menu items */
+    .nav-menu.active li {
+        width: 100% !important;
+        border-bottom: 1px solid #f0f0f0 !important;
+        margin-bottom: 10px !important;
+        padding-bottom: 10px !important;
+    }
+    
+    .nav-menu.active li:last-child {
+        border-bottom: none !important;
+        margin-bottom: 0 !important;
+    }
+    
+    .nav-menu.active .nav-link {
+        padding: 15px 0 !important;
+        font-size: 16px !important;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+    
+    /* Hamburger animation when active */
+    .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px) !important;
+    }
+    
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0 !important;
+    }
+    
+    .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px) !important;
+    }
+    
+    /* Dropdown menu in mobile */
+    .dropdown-menu {
+        position: static !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        box-shadow: none !important;
+        background: #f8f9fa !important;
+        margin-top: 10px !important;
+        border-radius: 8px !important;
+        max-height: 0 !important;
+        overflow: hidden !important;
+        transition: max-height 0.3s ease !important;
+    }
+    
+    .dropdown.active .dropdown-menu {
+        max-height: 300px !important;
+        padding: 15px !important;
+    }
+    
+    /* Fix header layout on mobile */
+    .header-main {
+        flex-direction: column !important;
+        gap: 15px !important;
+        align-items: stretch !important;
+    }
+    
+    .main-nav {
+        position: relative !important;
+        display: flex !important;
+        justify-content: flex-end !important;
+    }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 480px) {
+    .nav-toggle {
+        width: 40px !important;
+        height: 40px !important;
+        padding: 8px !important;
+    }
+    
+    .nav-toggle span {
+        width: 20px !important;
+        height: 2px !important;
+    }
+}
+
+/* Landscape phones */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .nav-menu.active {
+        max-height: 80vh !important;
+        overflow-y: auto !important;
+    }
+}
+
+/* Debug styles - remove after testing */
+.nav-toggle {
+    outline: 2px dashed red !important; /* TEMPORARY - to see if element exists */
+}
+
+/* Remove debug outline on production */
+@media screen and (min-width: 769px) {
+    .nav-toggle {
+        outline: none !important;
+    }
+}

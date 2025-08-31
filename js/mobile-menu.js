@@ -300,7 +300,9 @@ const MobileUtils = {
 
 // Initialize mobile menu when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('🔧 Mobile Menu Script Loaded!');
     const mobileMenu = new MobileMenuController();
+    console.log('📱 Mobile Menu Controller Initialized!');
     
     // Add mobile-specific classes
     if (MobileUtils.isMobile()) {

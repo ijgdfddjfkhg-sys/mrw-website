@@ -16,7 +16,7 @@ input, textarea {
 
 /* Hamburger Menu Styles */
 .nav-toggle {
-    display: none;
+    display: none; /* Hidden by default, shown on mobile */
     flex-direction: column;
     cursor: pointer;
     padding: 10px;
@@ -28,6 +28,20 @@ input, textarea {
     align-items: center;
     position: relative;
     z-index: 1001;
+}
+
+/* Show hamburger menu on mobile */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: flex !important;
+        background: rgba(44, 90, 160, 0.1);
+        border-radius: 8px;
+        margin-left: auto;
+    }
+    
+    .nav-toggle:hover {
+        background: rgba(44, 90, 160, 0.2);
+    }
 }
 
 .nav-toggle span {
@@ -99,6 +113,24 @@ input, textarea {
     }
 }
 
+/* Mobile Navigation Fix */
+@media (max-width: 768px) {
+    /* Show hamburger menu */
+    .nav-toggle {
+        display: flex !important;
+    }
+    
+    /* Hide desktop menu */
+    .main-nav .nav-menu {
+        display: none !important;
+    }
+    
+    /* Show mobile menu when active */
+    .main-nav .nav-menu.active {
+        display: flex !important;
+    }
+}
+
 /* Tablets */
 @media (max-width: 768px) {
     /* Header Responsive */
@@ -134,7 +166,7 @@ input, textarea {
     
     /* Navigation Mobile */
     .nav-toggle {
-        display: flex;
+        display: flex !important;
     }
     
     .nav-menu {
