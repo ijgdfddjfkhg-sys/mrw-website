@@ -1,4 +1,79 @@
 /* ===== Responsive Design ===== */
+/* Enhanced Mobile-First Responsive Design */
+
+/* Base Mobile Styles */
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+input, textarea {
+    -webkit-user-select: text;
+    user-select: text;
+}
+
+/* Hamburger Menu Styles */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    background: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1001;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #2c5aa0;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile-optimized touch targets */
+.mobile-device .btn,
+.mobile-device .nav-link,
+.mobile-device .contact-btn {
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Touch device optimizations */
+.touch-device .service-card:hover,
+.touch-device .work-item:hover {
+    transform: none;
+}
+
+.touch-device .service-card:active,
+.touch-device .work-item:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+}
 
 /* Large Tablets and Small Desktops */
 @media (max-width: 1024px) {
@@ -722,6 +797,198 @@
 
 .nav-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Advanced Mobile Optimizations */
+
+/* iOS Safari specific fixes */
+@supports (-webkit-appearance: none) {
+    .mobile-device input,
+    .mobile-device textarea {
+        -webkit-appearance: none;
+        border-radius: 8px;
+    }
+    
+    .mobile-device .btn {
+        -webkit-appearance: none;
+        border-radius: 8px;
+    }
+}
+
+/* Performance optimizations for mobile */
+@media (max-width: 768px) {
+    /* Reduce animations for better performance */
+    * {
+        animation-duration: 0.2s !important;
+        transition-duration: 0.2s !important;
+    }
+    
+    /* Optimize scroll behavior */
+    html {
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+    
+    /* Better text rendering on mobile */
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeSpeed;
+    }
+    
+    /* Improve touch scrolling */
+    .services-grid,
+    .works-grid,
+    .gallery-grid {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Mobile-specific image optimizations */
+    img {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+        will-change: transform;
+    }
+    
+    /* Optimize forms for mobile */
+    input, textarea, select {
+        font-size: 16px; /* Prevent zoom on iOS */
+        padding: 15px;
+        border-radius: 8px;
+        border: 2px solid #e0e0e0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    input:focus, textarea:focus, select:focus {
+        border-color: #2c5aa0;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(44, 90, 160, 0.1);
+    }
+    
+    /* Better button touch targets */
+    .btn, button, .contact-btn {
+        min-height: 48px;
+        padding: 12px 24px;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        touch-action: manipulation;
+    }
+    
+    /* Mobile gallery improvements */
+    .gallery-item,
+    .work-item {
+        margin-bottom: 20px;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+    
+    /* Mobile-optimized cards */
+    .service-card,
+    .contact-card {
+        border-radius: 12px;
+        padding: 25px 20px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+    
+    /* Floating elements adjustments */
+    .floating-social,
+    .floating-contact {
+        z-index: 1000;
+    }
+    
+    .floating-social {
+        right: 15px;
+        bottom: 120px;
+    }
+    
+    .floating-contact {
+        left: 15px;
+        bottom: 20px;
+    }
+    
+    /* Better modal behavior on mobile */
+    .modal,
+    .popup {
+        padding: 20px 15px;
+    }
+    
+    .modal-content {
+        max-width: 95%;
+        margin: 10% auto;
+        border-radius: 12px;
+    }
+}
+
+/* Landscape orientation optimizations */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+    .hero {
+        height: 90vh;
+    }
+    
+    .slide-content h2 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+    
+    .slide-content p {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    
+    .hero-controls {
+        bottom: 15px;
+    }
+}
+
+/* High DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Dark mode support for mobile */
+@media (prefers-color-scheme: dark) and (max-width: 768px) {
+    .nav-menu {
+        background: #1a1a1a;
+        color: #ffffff;
+    }
+    
+    .nav-link {
+        color: #ffffff;
+    }
+    
+    .dropdown-menu {
+        background: #2a2a2a;
+    }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0s !important;
+        transition-duration: 0s !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Print styles for mobile */
+@media print {
+    .floating-social,
+    .floating-contact,
+    .nav-toggle,
+    .hero-controls {
+        display: none !important;
+    }
+    
+    .container {
+        max-width: none !important;
+        padding: 0 !important;
+    }
 }
 
 /* Smooth Scrolling for Mobile */
