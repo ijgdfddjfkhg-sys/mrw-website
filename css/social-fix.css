@@ -1,0 +1,288 @@
+/* 🔧 SOCIAL ICONS FIX - Simple & Reliable Solution */
+/* حل بسيط وموثوق لأيقونات التواصل الاجتماعي */
+
+/* Force correct positioning and visibility */
+.floating-social {
+    position: fixed !important;
+    bottom: 20px !important;
+    left: 20px !important;
+    z-index: 9999 !important;
+    display: flex !important;
+    flex-direction: column-reverse !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    font-family: 'Font Awesome 5 Free', sans-serif !important;
+}
+
+/* Social toggle button - Always visible */
+.social-toggle {
+    width: 50px !important;
+    height: 50px !important;
+    background: linear-gradient(135deg, #667eea, #764ba2) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4) !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    outline: none !important;
+    order: 2 !important;
+}
+
+.social-toggle:hover {
+    transform: translateY(-3px) scale(1.1) !important;
+    box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6) !important;
+}
+
+.social-toggle i {
+    color: white !important;
+    font-size: 18px !important;
+    transition: transform 0.3s ease !important;
+    font-weight: 900 !important;
+}
+
+.social-toggle.active i {
+    transform: rotate(45deg) !important;
+    color: #ffeb3b !important;
+}
+
+/* Social icons container - Hidden by default */
+.social-icons {
+    display: none !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    order: 1 !important;
+    transform: translateY(20px) !important;
+    opacity: 0 !important;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+}
+
+/* Show social icons when active */
+.social-icons.active {
+    display: flex !important;
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    animation: socialSlideUp 0.5s ease-out !important;
+}
+
+@keyframes socialSlideUp {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-5px);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Individual social icons */
+.social-icon {
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+    transform: scale(0) !important;
+}
+
+/* Show social icons with staggered animation */
+.social-icons.active .social-icon:nth-child(1) {
+    animation: socialBounceIn 0.6s ease-out 0.1s forwards !important;
+}
+
+.social-icons.active .social-icon:nth-child(2) {
+    animation: socialBounceIn 0.6s ease-out 0.2s forwards !important;
+}
+
+.social-icons.active .social-icon:nth-child(3) {
+    animation: socialBounceIn 0.6s ease-out 0.3s forwards !important;
+}
+
+.social-icons.active .social-icon:nth-child(4) {
+    animation: socialBounceIn 0.6s ease-out 0.4s forwards !important;
+}
+
+.social-icons.active .social-icon:nth-child(5) {
+    animation: socialBounceIn 0.6s ease-out 0.5s forwards !important;
+}
+
+@keyframes socialBounceIn {
+    0% {
+        transform: scale(0) translateY(20px);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.2) translateY(-5px);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Social icon colors and hover effects */
+.social-icon.facebook {
+    background: linear-gradient(135deg, #3b5998, #8b9dc3) !important;
+}
+
+.social-icon.instagram {
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045) !important;
+}
+
+.social-icon.twitter {
+    background: linear-gradient(135deg, #1da1f2, #0d95e8) !important;
+}
+
+.social-icon.youtube {
+    background: linear-gradient(135deg, #ff0000, #cc0000) !important;
+}
+
+.social-icon.google {
+    background: linear-gradient(135deg, #db4437, #0f9d58) !important;
+}
+
+.social-icon:hover {
+    transform: translateY(-4px) scale(1.15) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+}
+
+.social-icon i {
+    color: white !important;
+    font-size: 16px !important;
+    font-weight: 900 !important;
+}
+
+/* Mobile optimizations */
+@media (max-width: 480px) {
+    .floating-social {
+        bottom: 15px !important;
+        left: 15px !important;
+    }
+    
+    .social-toggle {
+        width: 45px !important;
+        height: 45px !important;
+    }
+    
+    .social-toggle i {
+        font-size: 16px !important;
+    }
+    
+    .social-icon {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .social-icon i {
+        font-size: 14px !important;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+    .floating-social {
+        bottom: 10px !important;
+        left: 10px !important;
+    }
+    
+    .social-toggle {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .social-toggle i {
+        font-size: 14px !important;
+    }
+    
+    .social-icon {
+        width: 35px !important;
+        height: 35px !important;
+    }
+    
+    .social-icon i {
+        font-size: 12px !important;
+    }
+}
+
+/* Desktop compatibility */
+@media (min-width: 769px) {
+    .floating-social {
+        bottom: 25px !important;
+        left: 25px !important;
+    }
+    
+    .social-toggle {
+        width: 55px !important;
+        height: 55px !important;
+    }
+    
+    .social-toggle i {
+        font-size: 20px !important;
+    }
+    
+    .social-icon {
+        width: 50px !important;
+        height: 50px !important;
+    }
+    
+    .social-icon i {
+        font-size: 18px !important;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .social-toggle {
+        border: 2px solid #ffffff !important;
+    }
+    
+    .social-icon {
+        border: 2px solid #ffffff !important;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .social-toggle,
+    .social-icon,
+    .social-icons {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    .social-icons.active .social-icon {
+        transform: scale(1) !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Force visibility debugging */
+.floating-social {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.social-toggle {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Print styles */
+@media print {
+    .floating-social {
+        display: none !important;
+    }
+}
