@@ -11,7 +11,7 @@
     flex-direction: column-reverse !important;
     align-items: flex-start !important;
     gap: 10px !important;
-    font-family: 'Font Awesome 5 Free', sans-serif !important;
+    font-family: inherit !important;
 }
 
 /* Social toggle button - Always visible */
