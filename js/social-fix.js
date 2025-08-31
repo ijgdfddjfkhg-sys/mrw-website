@@ -21,6 +21,12 @@
     function initSocialIcons() {
         console.log('🔧 Social Fix: DOM Ready, setting up social icons...');
         
+        // Prevent double initialization
+        if (window.socialFixInitialized) {
+            console.log('🔧 Social Fix: Already initialized, skipping.');
+            return;
+        }
+        
         // Get elements
         const socialContainer = document.querySelector('.floating-social');
         const socialToggle = document.querySelector('.social-toggle');
@@ -106,6 +112,9 @@
                 isOpen ? 'إغلاق قائمة التواصل الاجتماعي' : 'فتح قائمة التواصل الاجتماعي'
             );
         };
+        
+        // Mark as initialized to avoid duplicate bindings
+        window.socialFixInitialized = true;
         
         // Test the functionality
         setTimeout(() => {
