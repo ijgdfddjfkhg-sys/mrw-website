@@ -33,7 +33,7 @@
 
 🌐 **عرض الموقع المباشر**
 
-يمكنك مشاهدة الموقع مباشرة عبر: [MRW Company Website](https://your-username.github.io/mrw-website)
+يمكنك مشاهدة الموقع مباشرة عبر: [MRW Company Website](https://ijgdfddjfkhg-sys.github.io/mrw-website)
 
 ## ✨ مميزات الموقع
 
@@ -140,7 +140,7 @@ mrw-website/
 
 - 📱 **جوال:** [رقم الجوال]
 - 📧 **بريد إلكتروني:** info@mrw-company.sa
-- 🌐 **الموقع:** [MRW Company Website](https://your-username.github.io/mrw-website)
+- 🌐 **الموقع:** [MRW Company Website](https://ijgdfddjfkhg-sys.github.io/mrw-website)
 - 📍 **العنوان:** الرياض، المملكة العربية السعودية
 
 ## 📈 إحصائيات المشروع

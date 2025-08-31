@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://your-username.github.io/mrw-website/sitemap.xml
+Sitemap: https://ijgdfddjfkhg-sys.github.io/mrw-website/sitemap.xml
 
 # Disallow test files
 Disallow: /tests/
